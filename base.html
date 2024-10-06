@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check-List</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    <header>Check-List</header>
+    <div id="block"></div> 
+    <p>Заплануй свій день!</p>
+    <div class="container">
+        <h1>Додайте свої плани</h1>
+        <input type="text" id="noteInput" placeholder="Введіть нотатку">
+        <button class="hover-button" id="addNoteButton">Додати</button>
+        
+        <div class="notes-container">
+            <div>
+              <h2>Невиконані нотатки</h2>
+              <div id="incompleteNotesContainer">
+                <!-- Невиконані нотатки будуть додаватися сюди -->
+              </div>
+            </div>
+      
+            <div>
+              <h2>Виконані нотатки</h2>
+              <div id="completedNotesContainer">
+                <!-- Виконані нотатки будуть додаватися сюди -->
+              </div>
+            </div>
+          </div>
+        </div>
+    
+
+    <noscript>JS NO WORKING</noscript>
+    <script src="JS/index.js"></script>
+
+</body>
+</html>
