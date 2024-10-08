@@ -155,3 +155,75 @@ document.getElementById('saveButton').addEventListener('click', function() {
   saveNotes(); // Спочатку зберігаємо всі нотатки
   showSaveMessage(); // Потім показуємо повідомлення про збереження
 });
+
+// Функція для показу повідомлення "Молодець"
+function showAllCompletedMessage() {
+  const messageElement = document.createElement('div');
+  messageElement.classList.add('complete-message');
+  messageElement.textContent = "Молодець, ви виконали всі нотатки!";
+  
+  document.body.appendChild(messageElement); // Додаємо повідомлення в кінець сторінки
+
+  setTimeout(function() {
+    messageElement.remove(); // Прибираємо повідомлення через 3 секунди
+  }, 3000);
+}
+
+// Функція для перевірки, чи всі нотатки виконані
+function checkIfAllCompleted() {
+  const incompleteNotesContainer = document.getElementById('incompleteNotesContainer');
+  
+  if (incompleteNotesContainer.children.length === 0) {
+    showAllCompletedMessage(); // Виводимо повідомлення, якщо всі нотатки виконані
+  }
+}
+
+// Оновлена функція для додавання подій на чекбокси
+function addCheckboxEventListeners(container) {
+  const checkboxes = container.querySelectorAll('input[type="checkbox"]');
+  checkboxes.forEach(function(checkbox) {
+    checkbox.addEventListener('change', function() {
+      const note = checkbox.parentElement;
+      const textSpan = note.querySelector('span');
+      
+      if (checkbox.checked) {
+        document.getElementById('completedNotesContainer').appendChild(note);
+        textSpan.style.textDecoration = 'line-through';
+        note.style.backgroundColor = '#00fa9a';
+      } else {
+        document.getElementById('incompleteNotesContainer').appendChild(note);
+        textSpan.style.textDecoration = 'none';
+        note.style.backgroundColor = '#dc143c';
+      }
+      saveNotes(); // Зберігаємо нотатки після зміни
+      checkIfAllCompleted(); // Перевіряємо, чи всі нотатки виконані
+    });
+  });
+}
+
+// Оновлена функція для додавання нової нотатки
+function addNote() {
+  const noteInput = document.getElementById('noteInput');
+  const noteText = noteInput.value;
+
+  if (noteText.trim() !== "") {
+    const note = document.createElement('div');
+    note.classList.add('note');
+
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.classList.add('note-checkbox');
+
+    const textSpan = document.createElement('span');
+    textSpan.textContent = noteText;
+
+    note.appendChild(checkbox);
+    note.appendChild(textSpan);
+
+    document.getElementById('incompleteNotesContainer').appendChild(note);
+    noteInput.value = ''; // Очищаємо поле введення
+
+    saveNotes(); // Зберігаємо нотатки після додавання
+    addCheckboxEventListeners(note); // Додаємо подію на чекбокс нової нотатки
+  }
+}
