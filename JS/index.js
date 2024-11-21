@@ -227,3 +227,13 @@ function addNote() {
     addCheckboxEventListeners(note); // Додаємо подію на чекбокс нової нотатки
   }
 }
+// Свайп-кнопка
+// Знаходимо кнопку та цільовий елемент
+const scrollButton = document.getElementById('scrollButton');
+const targetElement = document.getElementById('target');
+
+// Додаємо обробник події до кнопки
+scrollButton.addEventListener('click', () => {
+    // Прокручуємо до елемента
+    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});

@@ -1,15 +1,13 @@
 @font-face {
-
   font-family: "Montserrat";
-  
+
   src: url("https://fonts.google.com/share?selection.family=Montserrat:ital,wght@0,100..900;1,100..900");
-  
 }
 
 body {
   background: #222;
-  font-family: "Montserrat"; 
-  height: 2000px;
+  font-family: "Montserrat";
+  height: 1400px;
 }
 
 p {
@@ -17,21 +15,37 @@ p {
   font-size: 44px;
   display: flex;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
   position: absolute;
   transform: translate(-40%, -40%);
   top: 30%;
   left: 25%;
 }
 
+#scrollButton {
+  background-color: #1fb1ca;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  width: 200px;
+  margin-left: 8px;
+  border-radius: 30px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  transform: translate(-40%, -40%);
+  top: 600px;
+  left: 50%;
+}
+
 #block {
-  background: #222 url('https://dobaua.s3.eu-central-1.amazonaws.com/iblock/0af/0af36268b43d19522f6b826bfd5a6433/girl_mountain.webp');
+  background: #222 url("https://dobaua.s3.eu-central-1.amazonaws.com/iblock/0af/0af36268b43d19522f6b826bfd5a6433/girl_mountain.webp");
   background-size: cover;
   background-attachment: fixed;
   width: 100%;
-  height: 600px;
-
-
+  height: 650px;
 }
 
 header {
@@ -40,31 +54,21 @@ header {
   font-size: large;
   background-size: cover;
   height: 45px;
-    
 }
-
-
-
-
-
 
 .container {
   text-align: center;
-  color:#fff;
-  width: 600px; 
+  color: #fff;
+  width: 600px;
   margin: 0 auto;
-  
-    
 }
-  
+
 #noteInput {
   padding: 10px;
   width: 300px;
   margin-bottom: 1px;
- 
- 
 }
-  
+
 button {
   background-color: #1fb1ca;
   color: white;
@@ -78,21 +82,35 @@ button {
 .hover-button:hover {
   background-color: #c940f3; /* Колір при наведенні */
 }
-  
 
-  
-.notes-container {
-  display: flex; /* Встановлюємо флекс-контейнер для горизонтального розташування */
-  justify-content: space-between; /* Розподіляємо простір між контейнерами */
+#scrollButton:hover {
+  background-color: #c940f3;
 }
 
+.notes-container {
+  display: flex; /* Розташування колонок */
+  justify-content: space-between;
+  gap: 20px; /* Простір між колонками */
+  max-width: 900px; /* Ширина контейнера */
+  margin: 40px auto; /* Вирівнювання по центру */
+}
+
+.incomplete-notes,
+.complete-notes {
+  width: 48%; /* Кожна колонка займає половину контейнера */
+}
+
+.complete-notes .note {
+  background-color: #28a745; /* Зелений для виконаних нотаток */
+  color: white;
+}
 
 .note {
   background-color: #ee8bf0;
   padding: 10px;
   margin: 10px 0;
   border-radius: 5px;
-  align-items: center;
+  color: #222;
 
 }
 
@@ -100,10 +118,9 @@ button {
   flex-grow: 1;
 }
 
-
-
 .note-checkbox {
   margin-right: 10px;
+  width: 10px;
 }
 
 .save-message {
@@ -147,6 +164,72 @@ button {
   z-index: 1000;
 }
 
-.save-message.show, .message.show {
+h2 {
+  color: #fff;
+  text-align: center;
+}
+
+.save-message.show,
+.message.show {
   opacity: 1; /* Показуємо повідомлення */
+}
+
+.feedback {
+  color: #fff;
+  display: flex;
+  flex-direction: column; /* Елементи розташовані вертикально */
+  justify-content: center;
+  align-items: center;
+  margin-top: 250px; /* Відступ від попереднього контенту */
+  padding: 20px;
+  width: 100%;
+  background-color: rgba(34, 34, 34, 0.9); /* Напівпрозорий фон */
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5); /* Тінь для стилю */
+}
+
+form {
+  display: flex;
+  flex-direction: column; /* Елементи форми розташовуються вертикально */
+  align-items: center; /* Вирівнювання по центру */
+}
+
+.form-row {
+  margin-bottom: 20px; /* Відступ між елементами форми */
+}
+
+textarea,
+input {
+  width: 400px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #222;
+  color: #fff;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+  border-color: #1fb1ca;
+}
+
+#submit1 {
+  margin-top: 10px; /* Додаємо трохи простору зверху */
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  background-color: #1fb1ca;
+  transition: background-color 0.3s;
+}
+
+#submit1:hover {
+  background-color: #c940f3;
+}
+
+@media (min-width: 800px) {
+}
+
+@media (max-width: 799px) {
 }

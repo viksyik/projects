@@ -10,7 +10,8 @@
     <header>Check-List</header>
     <div id="block"></div> 
     <p>Заплануй свій день!</p>
-    <div class="container">
+    <button  id="scrollButton" >Запланувати</button>
+    <div id="target" class="container">
         <h1>Додайте свої плани</h1>
         <input type="text" id="noteInput" placeholder="Введіть нотатку">
         <button class="hover-button" id="addNoteButton">Додати</button>
@@ -38,8 +39,15 @@
         <div id="clearMessage" class="message">Нотатки очищено!</div>
     </div>
         </div>
-    
-
+<footer>
+    <div class="feedback">
+    <h3>Зворотній зв'язок</h3>
+    <form>
+        <textarea placeholder="Ваші ідеї чи пропозиції..."></textarea>
+        <button type="submit" id="submit1">Надіслати</button>
+    </form>
+</div>
+</footer>
     <noscript>JS NO WORKING</noscript>
     <script src="JS/index.js"></script>
 
